@@ -15,7 +15,7 @@ function App() {
         <Route exact path='/character' element={<CharacterPage/>} />
         <Route exact path='/death' element={<DeathPage/>} />
         <Route exact path='/episode' element={<EpisodePage/>} />
-        <Route exact path='/death' element={<QuotePage/>} />
+        <Route exact path='/quote' element={<QuotePage/>} />
       </Routes>
     </HashRouter>
   );
