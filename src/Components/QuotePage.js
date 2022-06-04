@@ -8,6 +8,7 @@ import axios from "axios";
 
 import Images from "../constants/Images";
 import { Card, Divider, Stack, Typography } from "@mui/material";
+import Footer from "./Footer";
 
 export default function QuotePage() {
   const location = useLocation();
@@ -30,8 +31,8 @@ export default function QuotePage() {
 
   return (
     <div>
-      <AppBarHead />
-
+   <AppBarHead  setPage='' />
+      
       <div
         style={{
           backgroundColor: Colors.DARK_THREE,
@@ -39,11 +40,12 @@ export default function QuotePage() {
           justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
+          marginTop:'7vh'
         }}
       >
        {
          ApiDataRef.current.map(((obj,i) => (
-          <Card key={i} sx={{ width: 300, padding: "25px", margin: "20px" }}>
+          <Card key={i} sx={{ width: 300, height:'300px',padding: "25px", margin: "20px" , display:'flex' , flexDirection:'column' , justifyContent:'space-between' , transition:'0.6s' , '&:hover':{borderRadius:'10px' , color:Colors.WHITE_COLOR , backgroundColor:Colors.DARK_FOUR }}}>
           <img
             src={ obj.series==="Breaking Bad" ? Images.BreakingBadImg : Images.BetterCallSaulImg}
             width="100%"
@@ -83,6 +85,8 @@ export default function QuotePage() {
        }
         
       </div>
+
+      <Footer/>
     </div>
   );
 }

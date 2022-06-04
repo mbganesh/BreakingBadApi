@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import APIClient from "../constants/APIClient";
 import Colors from "../constants/Colors";
 import AppBarHead from "./AppBarHead";
+import Footer from "./Footer";
 
 export default function HomePage() {
     const navigate = useNavigate()
@@ -37,7 +38,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <AppBarHead />
+   <AppBarHead  setPage='home' />
 
       <div
         style={{
@@ -46,7 +47,8 @@ export default function HomePage() {
           justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
-          height: "93vh",
+          height: "88vh",
+          marginTop:'7vh'
         }}
       >
         {CardData.map((obj, index) => (
@@ -64,7 +66,9 @@ export default function HomePage() {
               "&:hover": {
                 backgroundColor: Colors.DARK_FOUR,
                 color: Colors.WHITE_COLOR,
-                cursor:'pointer'
+                cursor:'pointer',
+                borderRadius:'20px',
+                border:'1px solid #fff'
               },
             }}
           >
@@ -72,6 +76,7 @@ export default function HomePage() {
           </Card>
         ))}
       </div>
+      <Footer/>
     </div>
   );
 }

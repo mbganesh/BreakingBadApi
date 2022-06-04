@@ -8,6 +8,7 @@ import axios from "axios";
 import CakeIcon from '@mui/icons-material/Cake';
 import { Stack , Typography } from "@mui/material";
 import { styled } from "@mui/system";
+import Footer from "./Footer";
 
 const MyCard = styled("div")(({ theme }) => ({
   width: "280px",
@@ -90,20 +91,21 @@ export default function CharacterPage() {
 
   return (
     <div>
-      <AppBarHead />
+     <AppBarHead  setPage='' />
 
-      <div
+     <div
         style={{
           backgroundColor: Colors.DARK_THREE,
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           flexWrap: "wrap",
+          marginTop:'7vh'
         }}
       >
         {ApiDataRef.current.map((obj, i) => (
           // card
-          <MyCard>
+          <MyCard key={i}>
             <img className="img" src={obj.img} alt="loading" />
 
             {/* info */}
@@ -142,6 +144,8 @@ export default function CharacterPage() {
           </MyCard>
         ))}
       </div>
+
+      <Footer/>
     </div>
   );
 }
